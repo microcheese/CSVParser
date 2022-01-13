@@ -17,8 +17,7 @@ let package = Package(
         .target(
             name: "CSVParser",
             dependencies: [],
-            path: "Sources",
-            exclude: ["Tests"]
+            path: "Sources"
         ),
    ]
 )
