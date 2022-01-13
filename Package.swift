@@ -5,4 +5,18 @@ import PackageDescription
 
 let package = Package(
     name: "CSVParser"
+    platforms: [.iOS(.v13)],
+    products: [
+        .library(name: "CSVParser", targets: ["CSVParser"])
+    ],
+    targets: [
+        .target(
+            name: "CSVParser",
+            path: "."
+        )
+    ]
 )
+
+
+
+
