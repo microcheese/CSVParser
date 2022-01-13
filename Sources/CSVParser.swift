@@ -181,11 +181,11 @@ public class CSVParser {
     // parse dic value to string
     func parseDicValue(value: Any?) -> String {
       if let value = value as? String {
-        return value.replacingOccurrences(of: "\n", with: " ").replacingOccurrences(of: "\r", with: "")
+        return value.replacingOccurrences(of: "\n", with: " ").replacingOccurrences(of: "\r", with: "").replacingOccurrences(of: ";", with: ",")
       }else if let intValue = value as? Int {
-        return String(intValue).replacingOccurrences(of: "\n", with: " ").replacingOccurrences(of: "\r", with: "")
+        return String(intValue).replacingOccurrences(of: "\n", with: " ").replacingOccurrences(of: "\r", with: "").replacingOccurrences(of: ";", with: ",")
       }else if let floatValue = value as? Float {
-        return String(floatValue).replacingOccurrences(of: "\n", with: " ").replacingOccurrences(of: "\r", with: "")
+        return String(floatValue).replacingOccurrences(of: "\n", with: " ").replacingOccurrences(of: "\r", with: "").replacingOccurrences(of: ";", with: ",")
       }
       return ""
     }
