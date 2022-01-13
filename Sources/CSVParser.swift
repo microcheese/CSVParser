@@ -156,7 +156,7 @@ public class CSVParser {
     guard let jsonObj = try JSONSerialization.jsonObject(with: jsonData, options: .allowFragments) as? Array<Dictionary<String, Any>> else {
       throw CSVParserError.jsonObjTypeNotMatch
     }
-    let delimiter = ","
+    let delimiter = ";"
     let lineSeparator = "\n"
     if jsonObj.count == 0 {
       return ""
@@ -181,11 +181,11 @@ public class CSVParser {
     // parse dic value to string
     func parseDicValue(value: Any?) -> String {
       if let value = value as? String {
-        return value
+        return value.replacingOccurrences(of: "\n", with: " ").replacingOccurrences(of: "\r", with: "")
       }else if let intValue = value as? Int {
-        return String(intValue)
+        return String(intValue).replacingOccurrences(of: "\n", with: " ").replacingOccurrences(of: "\r", with: "")
       }else if let floatValue = value as? Float {
-        return String(floatValue)
+        return String(floatValue).replacingOccurrences(of: "\n", with: " ").replacingOccurrences(of: "\r", with: "")
       }
       return ""
     }
